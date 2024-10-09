@@ -1,0 +1,9 @@
+      (loop $for
+        ;; инвертируем байт
+        (i32.add (local.get $i) (local.get $j))
+        call $invertByteByOffset
+        ;; увеличивем индекс
+        (local.set $j (i32.add (local.get $j) (i32.const 1)))
+        ;; пока индекс меньше 3
+        (br_if $for (i32.lt_s (local.get $j) (i32.const 3)))
+      )
