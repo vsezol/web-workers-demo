@@ -27,9 +27,9 @@ applyButton.addEventListener("click", () => {
     // memoryArray.set(new Uint8ClampedArray(imageData.data.buffer.transfer()));
     memoryArray.set(new Uint8ClampedArray(imageData.data.buffer));
 
-    console.log(performance.now());
-    wasmBindings.invertColors(memoryArray.byteLength - 4);
-    console.log(performance.now());
+    const start = performance.now();
+    wasmBindings.invertColors(initialByteLength - 4);
+    console.log(performance.now() - start);
 
     const newImageData = new ImageData(
       new Uint8ClampedArray(
