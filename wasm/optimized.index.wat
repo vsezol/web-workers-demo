@@ -48,15 +48,11 @@
       i32.load
       i32.sub
       i32.store8
-
-      ;; увеличиваем смещение на 4 байта (переход к следующему пикселю)
+      
       i32.const 4
       local.get $i
       i32.add
-      local.set $i
-
-      ;; пока не прошли по всем пикселям
-      local.get $i
+      local.tee $i
       local.get $size
       i32.lt_s
       br_if $loop
