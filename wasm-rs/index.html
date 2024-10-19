@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rust Wasm</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <script defer src="./index.js" type="module"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 10px;
+        max-width: 100%;
+      }
+
+      .row {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .row > * {
+        margin: 0;
+      }
+
+      #canvas {
+        display: block;
+        margin: 0 auto;
+        max-width: calc(100vw - 20px);
+      }
+
+      #counter {
+        font-size: 48px;
+        font-weight: bold;
+        opacity: 0;
+        transition: all 1s;
+      }
+
+      #counter.visible {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <input type="file" id="upload" accept="image/*" />
+      <button id="applyButton">Apply filter</button>
+      <div id="counter">0</div>
+    </div>
+
+    <canvas id="canvas" width="640" height="480"></canvas>
+  </body>
+</html>
